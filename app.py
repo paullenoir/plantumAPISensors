@@ -197,11 +197,7 @@ def delete_nutriement(id):
 ## Luminosité
 @app.route('/luminosity/<id>', methods=['DELETE'])
 def delete_luminosity(id):
-    luminosity = Luminosity.query.get(id)
-    db.session.delete(luminosity)
-    db.session.commit()
-    return luminosity_schema.jsonify(luminosity)
-    return delete(Temperature,schema, id)
+    return delete(Luminosity,luminosity_schema, id)
 ## TemperatureEau
 @app.route('/temperatureEau/<id>', methods=['DELETE'])
 def delete_temperatureEau(id):
