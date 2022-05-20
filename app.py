@@ -1,5 +1,6 @@
 #python app.py pour ecexuter le code
 #utiliser postman pour tester + wamp/phpmyadmin
+import os
 from flask import request
 from models import * 
 from init import create_app
@@ -209,4 +210,4 @@ def delete_quantityEau(id):
 
 # Run Server
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get("PORT", 8080)))
