@@ -1,3 +1,5 @@
+gunicorn
+os
 flask
 flask_sqlalchemy
 flask_marshmallow
