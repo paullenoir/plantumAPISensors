@@ -1,8 +1,29 @@
-version: "3.3"
+version: "3"
 
 services:
-  api:
+  flask:
     build:
-      context: ./
+      context: ./flask
+    restart: always
+    container_name: flask
+    expose:
+      - 5000
+    networks:
+      my-network:
+        aliases:
+          - flask-app
+
+  nginx:
+    build:
+      context: ./nginx
+    restart: always
+    networks:
+      - my-network
+    depends_on:
+      - flask
     ports:
-      - 5000:5000
+      - "80:80"
+  
+  
+networks:
+  my-network:
